@@ -9,6 +9,7 @@ import Nav from "./components/nav_bar/nav.component";
 const HomePage = lazy(() => import("./pages/home/home.page"));
 import AboutPage from "./pages/about/about.page";
 import CreateBlogsPage from "./pages/create_blog/create_blog.page";
+import Login from "./pages/login/login.page";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,32 +17,42 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Suspense fallback="loading">
-              <HomePage />
-            </Suspense>
-          }
-        ></Route>
-        <Route
-          path="/about"
-          element={
-            <Suspense fallback="loading">
-              <AboutPage />
-            </Suspense>
-          }
-        ></Route>
-        <Route
-          path="/create-blogs"
-          element={
-            <Suspense fallback="laoding">
-              <CreateBlogsPage />
-            </Suspense>
-          }
-        ></Route>
-      </Routes>
+      <div style={{ marginTop: "20vh" }}>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Suspense fallback="loading">
+                <HomePage />
+              </Suspense>
+            }
+          ></Route>
+          <Route
+            path="/about"
+            element={
+              <Suspense fallback="loading">
+                <AboutPage />
+              </Suspense>
+            }
+          ></Route>
+          <Route
+            path="/create-blogs"
+            element={
+              <Suspense fallback="laoding">
+                <CreateBlogsPage />
+              </Suspense>
+            }
+          ></Route>
+          <Route
+            path="/login"
+            element={
+              <Suspense>
+                <Login />
+              </Suspense>
+            }
+          />
+        </Routes>
+      </div>
     </div>
   );
 }

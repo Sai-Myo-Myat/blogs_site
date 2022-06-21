@@ -1,7 +1,13 @@
+import BlogCard from "../../components/blog_card/blog_card.component";
+
 const Home = () => {
   return (
     <div>
-      <h1>welcome to home page!</h1>
+      <div className="mt-5 container">
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+      </div>
     </div>
   );
 };

@@ -1,16 +1,20 @@
-const Blog_Card = () => {
+import { useContext } from "react";
+import BlogContext from "../../context/blog_context";
+
+const Blog_Card = ({ blog }) => {
+  const { blogDispatch } = useContext(BlogContext);
   return (
     <div className="my-3 border p-3">
-      <h3 className="text-secondary">Web Server</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea, quos
-        assumenda. In magnam soluta rerum facere deleniti, quasi inventore,
-        voluptas dolore atque obcaecati itaque ipsa tenetur dignissimos
-        similique est neque!
-      </p>
+      <h3 className="text-info">{blog.title}</h3>
+      <p>{blog.content}</p>
       <div>
         <button className="btn btn-success m-2">Edit</button>
-        <button className="btn btn-danger">Delete</button>
+        <button
+          onClick={() => blogDispatch({ type: "DELETE-BLOG", payload: blog })}
+          className="btn btn-danger"
+        >
+          Delete
+        </button>
       </div>
     </div>
   );

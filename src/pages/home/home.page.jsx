@@ -4,7 +4,6 @@ import BlogContext from "../../context/blog_context";
 
 const Home = () => {
   const { blogs } = useContext(BlogContext);
-  console.log("blogs", blogs);
   return (
     <div>
       <div className="mt-5 container">

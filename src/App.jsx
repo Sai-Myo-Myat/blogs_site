@@ -10,6 +10,7 @@ const HomePage = lazy(() => import("./pages/home/home.page"));
 import AboutPage from "./pages/about/about.page";
 import CreateBlogsPage from "./pages/create_blog/create_blog.page";
 import Login from "./pages/login/login.page";
+import ProtectedRoute from "./pages/protected_route/protected_route";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -38,9 +39,11 @@ function App() {
           <Route
             path="/create-blogs"
             element={
-              <Suspense fallback="laoding">
-                <CreateBlogsPage />
-              </Suspense>
+              <ProtectedRoute>
+                <Suspense fallback="laoding">
+                  <CreateBlogsPage />
+                </Suspense>
+              </ProtectedRoute>
             }
           ></Route>
           <Route
